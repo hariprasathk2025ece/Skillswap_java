@@ -1,0 +1,199 @@
+/* =============================================
+   SkillSwap - Simple Stylesheet with Table Support
+   ============================================= */
+
+/* Reset and base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    padding: 20px;
+}
+
+/* Main container — centered on page */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 30px 0 20px;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    color: #2c3e50;
+}
+
+header .subtitle {
+    color: #555;
+    margin-top: 6px;
+    font-size: 1rem;
+}
+
+/* Card — each section is a card */
+.card {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 14px;
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 6px;
+}
+
+/* Hint text inside cards */
+.hint {
+    font-size: 0.85rem;
+    color: #777;
+    margin-bottom: 12px;
+}
+
+/* Form groups */
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+    color: #444;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+/* Button */
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 9px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    margin-top: 4px;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+
+.btn-table-delete {
+    background-color: #e74c3c;
+    color: white;
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    border-radius: 3px;
+    margin: 0;
+}
+
+.btn-table-delete:hover {
+    background-color: #c0392b;
+}
+
+/* Result box — shows API response */
+.result {
+    margin-top: 14px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 12px;
+    font-size: 0.9rem;
+    color: #333;
+    display: none; /* hidden until there's content */
+    overflow-x: auto;
+}
+
+.result.show {
+    display: block;
+}
+
+.result.error {
+    color: #c0392b;
+    background: #fdf0f0;
+    border-color: #e8b0b0;
+}
+
+/* =============================================
+   Simple Table Styles
+   ============================================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 6px;
+    font-size: 0.88rem;
+    background: #ffffff;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f4f6f9;
+    color: #333;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+table tr:hover {
+    background-color: #f1f5f9;
+}
+
+.key-col {
+    font-weight: bold;
+    background-color: #f8f9fa;
+    width: 35%;
+}
+
+.empty-msg {
+    color: #666;
+    font-style: italic;
+    padding: 6px 0;
+}
+
+.success-tag {
+    color: #27ae60;
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap - Community Skill Exchange</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>SkillSwap</h1>
+        <p class="subtitle">Community Skill Exchange with Time Credits</p>
+    </header>
+
+    <!-- ===================== ADD MEMBER ===================== -->
+    <div class="card">
+        <h2>Add Member</h2>
+        <div class="form-group">
+            <label for="memberName">Name</label>
+            <input type="text" id="memberName" placeholder="e.g. Arun">
+        </div>
+        <div class="form-group">
+            <label for="memberEmail">Email</label>
+            <input type="email" id="memberEmail" placeholder="e.g. arun@gmail.com">
+        </div>
+        <div class="form-group">
+            <label for="memberCredits">Starting Credits</label>
+            <input type="number" id="memberCredits" placeholder="e.g. 5" min="0" value="5">
+        </div>
+        <button onclick="addMember()">Add Member</button>
+        <div class="result" id="memberResult"></div>
+    </div>
+
+    <!-- ===================== DELETE MEMBER ===================== -->
+    <div class="card">
+        <h2>Delete Member</h2>
+        <p class="hint">Permanently delete a member by Member ID</p>
+        <div class="form-group">
+            <label for="deleteMemberId">Member ID</label>
+            <input type="number" id="deleteMemberId" placeholder="e.g. 1" min="1">
+        </div>
+        <button class="btn-danger" onclick="deleteMemberById()">Delete Member</button>
+        <div class="result" id="deleteMemberResult"></div>
+    </div>
+
+    <!-- ===================== VIEW ALL MEMBERS ===================== -->
+    <div class="card">
+        <h2>View All Members</h2>
+        <button onclick="getAllMembers()">Get All Members</button>
+        <div class="result" id="allMembersResult"></div>
+    </div>
+
+    <!-- ===================== ADD SKILL ===================== -->
+    <div class="card">
+        <h2>Add Skill Offer</h2>
+        <div class="form-group">
+            <label for="skillName">Skill Name</label>
+            <input type="text" id="skillName" placeholder="e.g. Java Programming">
+        </div>
+        <div class="form-group">
+            <label for="skillDescription">Description</label>
+            <input type="text" id="skillDescription" placeholder="e.g. Basic Java help">
+        </div>
+        <div class="form-group">
+            <label for="skillHours">Hours Available</label>
+            <input type="number" id="skillHours" placeholder="e.g. 5" min="1" value="5">
+        </div>
+        <div class="form-group">
+            <label for="skillProviderId">Provider Member ID</label>
+            <input type="number" id="skillProviderId" placeholder="e.g. 1" min="1">
+        </div>
+        <button onclick="addSkill()">Add Skill</button>
+        <div class="result" id="skillResult"></div>
+    </div>
+
+    <!-- ===================== DELETE SKILL ===================== -->
+    <div class="card">
+        <h2>Delete Skill Offer</h2>
+        <p class="hint">Permanently delete a skill offer by Skill ID</p>
+        <div class="form-group">
+            <label for="deleteSkillId">Skill ID</label>
+            <input type="number" id="deleteSkillId" placeholder="e.g. 1" min="1">
+        </div>
+        <button class="btn-danger" onclick="deleteSkillById()">Delete Skill</button>
+        <div class="result" id="deleteSkillResult"></div>
+    </div>
+
+    <!-- ===================== VIEW ALL SKILLS ===================== -->
+    <div class="card">
+        <h2>View All Skills</h2>
+        <button onclick="getAllSkills()">Get All Skills</button>
+        <div class="result" id="allSkillsResult"></div>
+    </div>
+
+    <!-- ===================== REQUEST SKILL ===================== -->
+    <div class="card">
+        <h2>Request Skill Session</h2>
+        <div class="form-group">
+            <label for="reqSkillId">Skill ID</label>
+            <input type="number" id="reqSkillId" placeholder="e.g. 1" min="1">
+        </div>
+        <div class="form-group">
+            <label for="reqRequesterId">Requester Member ID</label>
+            <input type="number" id="reqRequesterId" placeholder="e.g. 2" min="1">
+        </div>
+        <div class="form-group">
+            <label for="reqHours">Hours Requested</label>
+            <input type="number" id="reqHours" placeholder="e.g. 2" min="1" value="2">
+        </div>
+        <button onclick="requestSkill()">Request Skill</button>
+        <div class="result" id="requestResult"></div>
+    </div>
+
+    <!-- ===================== VIEW ALL SESSIONS ===================== -->
+    <div class="card">
+        <h2>View All Session Requests</h2>
+        <button onclick="getAllSessions()">Get All Sessions</button>
+        <div class="result" id="allSessionsResult"></div>
+    </div>
+
+    <!-- ===================== CONFIRM SESSION ===================== -->
+    <div class="card">
+        <h2>Confirm Session</h2>
+        <p class="hint">Provider confirms a PENDING session</p>
+        <div class="form-group">
+            <label for="confirmSessionId">Session ID</label>
+            <input type="number" id="confirmSessionId" placeholder="e.g. 1" min="1">
+        </div>
+        <button onclick="confirmSession()">Confirm Session</button>
+        <div class="result" id="confirmResult"></div>
+    </div>
+
+    <!-- ===================== COMPLETE SESSION ===================== -->
+    <div class="card">
+        <h2>Complete Session</h2>
+        <p class="hint">Provider completes a CONFIRMED session — credits are transferred here</p>
+        <div class="form-group">
+            <label for="completeSessionId">Session ID</label>
+            <input type="number" id="completeSessionId" placeholder="e.g. 1" min="1">
+        </div>
+        <div class="form-group">
+            <label for="actualHours">Actual Hours Delivered</label>
+            <input type="number" id="actualHours" placeholder="e.g. 2" min="1" value="2">
+        </div>
+        <button onclick="completeSession()">Complete Session</button>
+        <div class="result" id="completeResult"></div>
+    </div>
+
+    <!-- ===================== CHECK BALANCE ===================== -->
+    <div class="card">
+        <h2>Check Credit Balance</h2>
+        <div class="form-group">
+            <label for="balanceMemberId">Member ID</label>
+            <input type="number" id="balanceMemberId" placeholder="e.g. 1" min="1">
+        </div>
+        <button onclick="checkBalance()">Check Balance</button>
+        <div class="result" id="balanceResult"></div>
+    </div>
+
+    <!-- ===================== VIEW LEDGER ===================== -->
+    <div class="card">
+        <h2>View Credit Ledger</h2>
+        <p class="hint">Shows all CREDIT and DEBIT transactions for a member</p>
+        <div class="form-group">
+            <label for="ledgerMemberId">Member ID</label>
+            <input type="number" id="ledgerMemberId" placeholder="e.g. 1" min="1">
+        </div>
+        <button onclick="viewLedger()">View Ledger</button>
+        <div class="result" id="ledgerResult"></div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
